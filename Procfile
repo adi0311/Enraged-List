@@ -1,0 +1,1 @@
+web: gunicorn enraged_list.wsgi
