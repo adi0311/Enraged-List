@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
 	<h2 style="text-align: center">{{ search | title }}</h2>
 	<div class="row">
@@ -6,16 +6,33 @@
 			<div class="col m6">
 				<div class="card">
 					<div class="card-image">
-						<a href="{{ post.1 }}"><img src="{{ post.3 }}" alt="/"></a>
+						<img src="{{ post.3 }}" alt="/">
 					</div>
 					<div class="card-content">
 						<p>{{ post.0 }}</p>
 					</div>
 					<div class="card-action">
-						<a href="{{ post.1 }}">View listing: {{ post.2 }}</a>
+						<p onclick="form_submit(this)" style="color: orange" class="{{ forloop.counter0 }}">
+							View listing: {{ post.2 }}
+							<form method="post" action="{% url 'article' %}" id="{{ forloop.counter0 }}">
+								{% csrf_token %}
+								<input type="hidden" name="article_image" value="{{ post.3 }}"/>
+							  	<input type="hidden" name="article_url" value="{{ post.1 }}"/>
+							</form>
+						</p>
 					</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
+	<script>
+		function form_submit(tag)
+		{
+			var temp = tag.getAttribute("class");
+			document.getElementById(temp).submit();
+		}
+	</script>
+	<script>
+		$('p').css('cursor', 'pointer');
+	</script>
 {% endblock %}

@@ -20,6 +20,4 @@ from my_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('my_app.urls')),
-    # path('new-search/', views.new_search, name='new_search'),
-    # path('css/', include('my_app.urls')),
 ]

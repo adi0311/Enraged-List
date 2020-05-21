@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="row z-depth-2" style="padding: 0.5em;">
+		<div class="col s4">
+			<img class="materialboxed" src="{{ post_image }}">
+		</div>
+		<div class="col s8">
+			<blockquote>
+				<h4>{{ post_title }}</h4>
+			</blockquote>
+			<div class="row">
+				<div class="col s4" style="color: #616161">
+					Description
+				</div>
+				<div class="col s8">
+					{{ post_description }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s4" style="color: #616161">
+					Website
+				</div>
+				<div class="col s8">
+					{{ web_url }}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s4" style="color: #616161">
+					Address
+				</div>
+				<div class="col s8">
+					{{ address }}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s4" style="color: #616161">
+					Phone No.
+				</div>
+				<div class="col s8">
+					{{ contact }}
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.materialboxed').materialbox();
+		});
+	</script>
+{% endblock %}
